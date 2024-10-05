@@ -1,11 +1,12 @@
 const { Router } = require("express");
+const exampleController = require("../controllers/exampleController");
 
 const exampleRouter = Router();
 
-exampleRouter.get("/", (req, res) => res.send("All authors"));
+exampleRouter.get("/", (req, res) => res.send("Example"));
+
 exampleRouter.get("/:exampleId", (req, res) => {
-  const { exampleId } = req.params;
-  res.send(`Example ID: ${exampleId}`);
+  exampleController(req, res)
 });
 
 module.exports = exampleRouter;
