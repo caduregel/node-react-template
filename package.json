@@ -4,12 +4,15 @@
   "description": "A template project for Node/React projects",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "watch": "node --watch index.ks",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "express-validator": "^7.2.0"
   }
 }
