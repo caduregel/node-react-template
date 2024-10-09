@@ -1,12 +1,9 @@
 const { Router } = require("express");
 const exampleController = require("../controllers/exampleController");
+// const { render } = require("ejs");
 
 const exampleRouter = Router();
 
-exampleRouter.get("/", (req, res) => res.send("Example"));
-
-exampleRouter.get("/:exampleId", (req, res) => {
-  exampleController(req, res)
-});
+exampleRouter.get("/", exampleController);
 
 module.exports = exampleRouter;

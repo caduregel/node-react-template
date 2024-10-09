@@ -1,27 +1,10 @@
 const asyncHandler = require("express-async-handler");
+const db = require("../db/queries");
 
 const exampleController = asyncHandler(async (req, res) => {
-    const exampleId = req.params.exampleId;
-
-    const example = await someFunctionWhichGetsExample(exampleId)
-
-    if (!example) { res.status(404).send('Example not found') }
-
-    res.send(`Example found: ${example.name}`)
-
+    const usernames = await db.getAllUsernames()
+    console.log("Usernames: ", usernames);
+    res.send("Usernames: " + usernames.map(user => user.username).join(", "));
 })
 
-function someFunctionWhichGetsExample(id) {
-    if (id == 'liam') {
-        return {
-            name: 'liam',
-        }
-    }
-    if (id == 'karel') {
-        return {
-            name: 'karel',
-        }
-    }
-    return undefined;
-}
 module.exports = exampleController;
